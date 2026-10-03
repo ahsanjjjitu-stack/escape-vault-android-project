@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+
+        <!-- ===== Top bar: back + title ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/btn_back_fake_sms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="←"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_dark"
+                android:padding="6dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Fake SMS"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/text_dark" />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView_sms_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            ads:adSize="BANNER"
+            android:layout_gravity="center_horizontal"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            >
+
+
+                <ImageView
+                    android:id="@+id/photo_picker_fake_sms"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:background="@drawable/bg_photo_circle"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:scaleType="centerCrop"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                >
+
+
+                <!-- ===== Caller name ===== -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Sender name"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_gray"
+                    android:textAllCaps="true"/>
+
+                <EditText
+                    android:id="@+id/edit_caller_name_fake_sms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="Mom, Boss, Delivery…"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_gray_light"
+                    android:inputType="textPersonName"
+                    android:singleLine="true" />
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+        <!-- ===== Phone number ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Phone number"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textColor="@color/text_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/edit_phone_number_fake_sms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input_field"
+                android:hint="+880 1XXX-XXXXXX"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textSize="16sp"
+                android:textColor="@color/purple_primary"
+                android:textColorHint="@color/text_gray_light"
+                android:inputType="phone"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/btn_add_number_fake_sms"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_button_light_square"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="22sp"
+                android:textColor="@color/purple_primary"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Fake Message"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textColor="@color/text_gray" />
+
+
+
+
+        <EditText
+            android:id="@+id/edit_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Can you call me back?"
+            android:gravity="start|top"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_gray_light"
+            android:layout_marginTop="6dp"
+            android:minLines="1"
+            android:maxLines="5"
+            android:inputType="textMultiLine|textCapSentences"
+            android:scrollbars="vertical"
+            android:overScrollMode="always" />
+
+
+
+
+
+
+        <!-- ===== Delay ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Delay"
+            android:textSize="16sp"
+            android:textColor="@color/text_dark"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="5s minimum · 2h maximum"
+            android:textSize="14sp"
+            android:textColor="@color/text_gray" />
+
+        <!-- Horizontally scrollable delay chips -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none"
+            android:clipToPadding="false"
+            android:paddingEnd="4dp">
+
+            <LinearLayout
+                android:id="@+id/chip_group_delay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chip_5s"
+                    style="@style/DelayChip"
+                    android:layout_marginStart="0dp"
+                    android:text="5s" />
+
+                <TextView
+                    android:id="@+id/chip_10s"
+                    style="@style/DelayChip"
+                    android:text="10s" />
+
+                <TextView
+                    android:id="@+id/chip_30s"
+                    style="@style/DelayChip"
+                    android:text="30s" />
+
+                <TextView
+                    android:id="@+id/chip_1m"
+                    style="@style/DelayChip"
+                    android:text="1m" />
+
+
+
+                <TextView
+                    android:id="@+id/chip_1h"
+                    style="@style/DelayChip"
+                    android:text="1h" />
+
+
+                <TextView
+                    android:id="@+id/chip_custom"
+                    style="@style/DelayChip"
+                    android:layout_marginEnd="0dp"
+                    android:text="Custom" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- ===== Date / Time (GONE by default, shown only when "Custom" chip is tapped) ===== -->
+        <LinearLayout
+            android:id="@+id/date_time_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_rounded_lavender"
+            android:padding="12dp"
+            android:layout_marginTop="14dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:id="@+id/field_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="16dp"
+                    android:text="27 Sep 2026"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_dark"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:id="@+id/field_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center"
+                    android:text="08:45 PM"
+                    android:textSize="14sp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="16dp"
+                    android:textColor="@color/text_dark"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        android:weightSum="2"
+        android:layout_marginBottom="70dp"
+        >
+
+        <!-- ===== Schedule Call button ===== -->
+        <TextView
+            android:id="@+id/btn_schedule_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button_primary_pill"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Schedule sms"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginEnd="4dp"/>
+
+
+
+        <!-- ===== Schedule Call button ===== -->
+        <TextView
+            android:id="@+id/btn_shake_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_primary_pill"
+            android:backgroundTint="#EB7F31"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Shake sms"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

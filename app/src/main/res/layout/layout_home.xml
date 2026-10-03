@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="20dp"
+        >
+
+        <!-- ===== Header: logo + title + settings gear ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="20dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Escape Vault"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/text_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your quick escape toolkit"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_gray" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_settings_gear"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_icon_circle_white"
+                android:gravity="center"
+                android:text="⚙"
+                android:textSize="18sp"
+                android:textColor="@color/text_dark"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView_home_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            ads:adSize="BANNER"
+            android:layout_gravity="center_horizontal"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+
+
+
+
+
+
+
+
+
+        <!-- ===== Status frame: "No escape scheduled" <-> "Fake Call" ===== -->
+        <FrameLayout
+            android:id="@+id/escape_status_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            >
+
+            <!-- STATE 1: default visible -->
+            <LinearLayout
+                android:id="@+id/card_no_escape"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_rounded_lavender"
+                android:padding="24dp"
+                >
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_icon_circle_white"
+                    android:gravity="center"
+                    android:text="🛡"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="No escape scheduled"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="Set up a fake call, SMS or shutdown below — it'll run quietly whenever you need it."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_gray" />
+            </LinearLayout>
+
+            <!-- STATE 2: gone by default, shown when Fake Call tool is triggered -->
+            <LinearLayout
+                android:id="@+id/card_fake_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_fake_call_card"
+                android:paddingVertical="35dp"
+                android:paddingHorizontal="14dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_icon_circle_purple"
+                    android:gravity="center"
+                    android:text="📞"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/callerNameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fake Call — Mom"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_dark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ringing in…"
+                        android:textSize="14sp"
+                        android:textColor="@color/purple_primary" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/fake_call_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="00:16"
+                    android:textSize="16sp"
+                    android:textColor="@color/purple_primary" />
+
+                <TextView
+                    android:id="@+id/btn_close_fake_call"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_close_circle"
+                    android:gravity="center"
+                    android:text="✕"
+                    android:textSize="13sp"
+                    android:textColor="@color/red_close"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- ===== Shake trigger pill ===== -->
+        <TextView
+            android:id="@+id/btn_shake_trigger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_pill_light_purple"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="● Shake trigger on"
+            android:textColor="@color/purple_primary"
+            android:textSize="14sp"
+            android:layout_marginHorizontal="20dp"
+            />
+
+        <!-- ===== TOOLS label ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text="TOOLS"
+            android:textColor="@color/text_gray_light"
+            android:textSize="14sp"
+            android:layout_marginHorizontal="20dp"
+            />
+
+        <!-- ===== Tools row: Fake Call / Fake SMS / Shutdown ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:weightSum="3"
+            android:layout_marginHorizontal="20dp"
+            >
+
+            <!-- Fake Call tool -->
+            <LinearLayout
+                android:id="@+id/tool_fake_call"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_tool_card"
+                android:padding="14dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_circle_purple"
+                    android:gravity="center"
+                    android:text="📞"
+                    android:textSize="15sp"
+                    android:textColor="@color/red_close"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Fake Call"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Incoming"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_gray" />
+            </LinearLayout>
+
+            <!-- Fake SMS tool -->
+            <LinearLayout
+                android:id="@+id/tool_fake_sms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_tool_card"
+                android:padding="14dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_circle_green"
+                    android:gravity="center"
+                    android:text="💬"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Fake SMS"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Message"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_gray" />
+            </LinearLayout>
+
+            <!-- Shutdown tool -->
+            <LinearLayout
+                android:id="@+id/tool_shutdown"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_tool_card"
+                android:padding="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_circle_peach"
+                    android:gravity="center"
+                    android:text="🔋"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Shutdown"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Power-off"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_gray" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ===== Quick & simple info card ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/bg_rounded_lavender"
+            android:padding="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginHorizontal="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quick &amp; simple"
+                android:textStyle="bold"
+                android:textColor="@color/purple_primary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="Set it up in seconds and trigger it whenever you need it."
+                android:textColor="@color/purple_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_incoming_call_screen">
+
+    <!-- ===== Caller avatar + name + subtitle ===== -->
+    <LinearLayout
+        android:id="@+id/caller_info_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="72dp">
+
+        <TextView
+            android:id="@+id/caller_avatar"
+            android:layout_width="106dp"
+            android:layout_height="106dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:gravity="center"
+            android:text="M"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_primary" />
+
+        <TextView
+            android:id="@+id/caller_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Mom"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_dark" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/caller_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mobile · incoming call"
+                android:textSize="14sp"
+                android:textColor="@color/text_gray" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ===== Circular swipe track (buttons-er PICHONE, tai age thakbe) ===== -->
+    <com.example.escapevault.call_setup_pack.CircularCallSwipeView
+        android:id="@+id/circular_swipe_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ===== Decline button ===== -->
+    <TextView
+        android:id="@+id/btn_decline"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_button_decline"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="✕"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="56dp"
+        android:layout_marginStart="58dp"/>
+
+    <!-- ===== Accept button ===== -->
+    <TextView
+        android:id="@+id/btn_accept"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_button_accept"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="✓"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="58dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

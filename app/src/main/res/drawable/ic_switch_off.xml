@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="52dp"
+    android:height="28dp"
+    android:viewportWidth="52"
+    android:viewportHeight="28">
+
+    <!-- Track (rounded gray background) -->
+    <path
+        android:pathData="M14,2 H38 A12,12 0 0 1 38,26 H14 A12,12 0 0 1 14,2 Z"
+        android:fillColor="#EEEEEE" />
+
+    <!-- Thumb shadow (subtle) -->
+    <path
+        android:pathData="M14,15 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0"
+        android:fillColor="#33000000" />
+
+    <!-- Thumb (white circle) -->
+    <path
+        android:pathData="M14,14 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0"
+        android:fillColor="#FFFFFF" />
+
+</vector>
